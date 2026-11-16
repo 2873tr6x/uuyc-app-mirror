@@ -1,0 +1,16 @@
+name: 镜像异常
+description: 下载、版本、校验或自动化故障
+body:
+  - type: input
+    id: link
+    attributes:
+      label: Release / Actions 链接
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 现象及复现步骤
+      description: 请提供平台、资产名、期望和实际结果；不要粘贴账号、设备码或个人日志。
+    validations:
+      required: true
