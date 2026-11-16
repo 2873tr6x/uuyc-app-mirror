@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import time
 import urllib.error
 import urllib.parse
@@ -82,8 +83,22 @@ def optional_api(path):
         raise
 
 
+def find_release(repo, tag):
+    published = optional_api(f'repos/{repo}/releases/tags/{tag}')
+    if published:
+        return published
+    # The tag endpoint returns 404 for drafts, even to the repository owner.
+    pages = api(f'repos/{repo}/releases?per_page=100', '--paginate', '--slurp')
+    return next((r for page in pages for r in page if r['tag_name'] == tag), None)
+
+
 def write_json(path, value):
     Path(path).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+
+def file_sha256(path):
+    with Path(path).open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
 def stable_url(url):
@@ -182,6 +197,8 @@ def latest(repo):
 
 
 def summary(message):
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     print(message, flush=True)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as output:
@@ -205,6 +222,8 @@ def run(args):
         return
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         packages = list(pool.map(download, sources))
+    for package in packages:
+        summary(f"已验证 {package['platform']} {package['version']} · {package['size']:,} bytes · SHA-256 `{package['sha256']}`")
     identity = hashlib.sha256(json.dumps([(p['platform'], p['sha256']) for p in packages], separators=(',', ':')).encode()).hexdigest()
     if previous and identity == previous['snapshot_sha256']:
         summary('完整 SHA-256 校验完成，安装包内容未变化；不创建重复 Release。')
@@ -241,24 +260,25 @@ def run(args):
     if not args.publish:
         summary('本地验证完成，未发布：' + tag)
         return
-    release = optional_api(f'repos/{args.repo}/releases/tags/{tag}')
+    release = find_release(args.repo, tag)
     if release and not release['draft']:
         # Includes upstream rollbacks: never mutate an already published archive.
         summary('该内容快照已归档，保留原 Release：' + release['html_url'])
         return
     title = 'UU 远程 · ' + ' / '.join(p['platform'] + ' ' + p['version'] for p in packages)
     if not release:
-        gh('release', 'create', tag, '--repo', args.repo, '--draft', '--title', title,
-           '--notes-file', str(DIST / 'release-notes.md'), '--target', os.environ.get('GITHUB_SHA', 'main'))
+        release = api(f'repos/{args.repo}/releases', '--method', 'POST',
+                      '-f', f'tag_name={tag}', '-f', 'name=' + title, '-f', 'body=' + body,
+                      '-f', 'target_commitish=' + os.environ.get('GITHUB_SHA', 'main'), '-F', 'draft=true')
     names = [p['asset_name'] for p in packages] + ['release-manifest.json', 'official-download-page.html', 'probe.json', 'SHA256SUMS.txt']
     # Only drafts may be repaired. Never replace a published archive.
     gh('release', 'upload', tag, '--repo', args.repo, '--clobber', *[str(DIST / n) for n in names])
-    release = api(f'repos/{args.repo}/releases/tags/{tag}')
+    release = api(f'repos/{args.repo}/releases/{release["id"]}')
     assets = {a['name']: a for a in release['assets']}
     for name in names:
         local = DIST / name
         asset = assets[name]
-        digest = 'sha256:' + hashlib.sha256(local.read_bytes()).hexdigest()
+        digest = 'sha256:' + file_sha256(local)
         if asset['size'] != local.stat().st_size or asset.get('digest') != digest:
             raise ValueError('GitHub asset digest verification failed: ' + name)
     gh('release', 'edit', tag, '--repo', args.repo, '--draft=false', '--latest', '--title', title, '--notes-file', str(DIST / 'release-notes.md'))
@@ -274,4 +294,8 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
     if arguments.publish and arguments.probe_only:
         parser.error('--publish and --probe-only are mutually exclusive')
-    run(arguments)
+    try:
+        run(arguments)
+    except subprocess.CalledProcessError as error:
+        summary('GitHub CLI failure: ' + error.stderr.decode('utf-8', errors='replace'))
+        raise

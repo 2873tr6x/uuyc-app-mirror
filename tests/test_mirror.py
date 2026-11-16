@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 import io
 import zipfile
+import argparse
 
 spec = importlib.util.spec_from_file_location('mirror', Path(__file__).parents[1] / 'scripts/mirror.py')
 m = importlib.util.module_from_spec(spec)
@@ -70,6 +71,40 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(package['size'], 2048)
         self.assertEqual(len(package['sha256']), 64)
         self.assertNotIn('_download_url', package)
+
+    def test_unchanged_probe_never_downloads(self):
+        sources = [{**self.source(), 'platform': p, 'version': '1.2.3',
+                    'endpoint_url': 'https://api.nrd.nie.163.com/a'} for p in m.PLATFORMS]
+        args = argparse.Namespace(repo='owner/repo', publish=True, audit=False, probe_only=False)
+        with tempfile.TemporaryDirectory() as tmp, patch.object(m, 'DIST', Path(tmp)), patch.object(m, 'request', return_value=Response(b'page', m.HOME)), patch.object(m, 'probe', side_effect=lambda p, _: next(s for s in sources if s['platform'] == p)), patch.object(m, 'latest', return_value={'packages': sources}), patch.object(m, 'download') as download:
+            m.run(args)
+            download.assert_not_called()
+
+    def test_digest_failure_keeps_release_private(self):
+        sources = [{**self.source(), 'platform': p, 'version': '1.2.3',
+                    'endpoint_url': 'https://api.nrd.nie.163.com/a'} for p in m.PLATFORMS]
+        args = argparse.Namespace(repo='owner/repo', publish=True, audit=True, probe_only=False)
+        calls = []
+        with tempfile.TemporaryDirectory() as tmp:
+            dist = Path(tmp)
+            def download(source):
+                name = source['platform'] + '--uuyc.exe'
+                (dist / name).write_bytes(b'MZ' + b'x' * 2046)
+                return {**{k: v for k, v in source.items() if not k.startswith('_')},
+                        'asset_name': name, 'size': 2048, 'sha256': m.file_sha256(dist / name)}
+            def api(_):
+                return {'id': 1, 'assets': [{'name': f.name, 'size': f.stat().st_size, 'digest': 'sha256:wrong'} for f in dist.iterdir()], 'html_url': 'https://github.com/owner/repo/releases/tag/test'}
+            with patch.object(m, 'DIST', dist), patch.object(m, 'request', return_value=Response(b'page', m.HOME)), patch.object(m, 'probe', side_effect=lambda p, _: next(s for s in sources if s['platform'] == p)), patch.object(m, 'latest', return_value=None), patch.object(m, 'download', side_effect=download), patch.object(m, 'find_release', return_value={'id': 1, 'draft': True}), patch.object(m, 'api', side_effect=api), patch.object(m, 'gh', side_effect=lambda *a, **kw: calls.append(a)):
+                with self.assertRaisesRegex(ValueError, 'digest verification failed'):
+                    m.run(args)
+        self.assertTrue(any(c[:2] == ('release', 'upload') for c in calls))
+        self.assertFalse(any(c[:2] == ('release', 'edit') for c in calls))
+
+    def test_draft_lookup_uses_paginated_list(self):
+        draft = {'tag_name': 'uuyc-test', 'draft': True, 'id': 123}
+        with patch.object(m, 'optional_api', return_value=None), patch.object(m, 'api', return_value=[[], [draft]]) as api:
+            self.assertEqual(m.find_release('owner/repo', 'uuyc-test'), draft)
+            self.assertIn('--paginate', api.call_args.args)
 
 
 if __name__ == '__main__':
