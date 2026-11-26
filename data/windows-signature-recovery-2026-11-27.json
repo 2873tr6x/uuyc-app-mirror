@@ -1,0 +1,2069 @@
+{
+  "schema_version": 1,
+  "discovered_at": "2026-11-26T22:01:30+00:00",
+  "capture_until": "20261127",
+  "method": "Untrusted local files provide version and signed timestamp hints only. Bounded official CDN HEAD search in UTC and UTC+8; no untrusted binary uploaded.",
+  "release_title": "UU 远程 Windows 历史版本 · 签名时间线索回溯 · 2026-11-27",
+  "release_intro": "## Windows 历史版本补充归档\n\n第三方 EXE 仅提供内部版本、签名时间与 SHA-256 线索，不上传第三方文件。以签名时间附近 ±100 秒（未命中扩大至 ±300 秒），按 UTC / UTC+8 尝试有官方证据的文件名模板。所有发布安装包均由本次 Actions 直接从网易官方 CDN 下载，逐包核对 Windows Authenticode 状态 Valid、网易发布者、内部版本、大小、SHA-256，以及上传后的 GitHub digest。签名时间不是证书有效期，也不代表官方发布日期。\n\nmanifest 记录官方文件与第三方线索文件的 SHA-256 是否相同；不同渠道可能不同，不将第三方字节作为可信来源。完整探测记录（含未命中）保存在来源计划中。签名时间推导的路径未宣称被 Wayback 捕获；未执行任何安装包。\n\n检索覆盖：25 个线索文件、21 个内部版本；15 个版本命中官方地址，5 个版本先前已有归档。`0.1.5.535` 在 UTC 与 UTC+8 的 ±300 秒窗口共 1,202 个候选中均返回 404，未恢复；这不证明该版本从未发布或不存在其他官方文件名。",
+  "coverage_errors": [],
+  "packages": [
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+      "platform": "windows",
+      "version": "3.11.0.3887",
+      "filename": "UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "UURemote_3.11.0.3887.exe",
+            "size": 58571152,
+            "sha256": "78688d0e63a7d6bd96ea2b07c7fa7baa164149474a3aa87a486989d35e1dcd20",
+            "version": "3.11.0.3887",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20250427153907Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 58571152,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg2_T4ewRuhsakTN4soqhoGH8eAUVppoGI2zoULsKNeE9nmf_yFvsgCYhp-pR7Jb8PZRJknC6ugZIyYi",
+              "Last-Modified": "Sun, 27 Apr 2025 15:40:52 GMT",
+              "ETag": "\"971753f67599fa3b48bc7c8f8ad5cf33\"",
+              "x-goog-generation": "1745768452148139",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "58571152",
+              "x-goog-hash": "md5=lxdT9nWZ+jtIvHyPitXPMw==",
+              "x-amz-checksum-crc32c": "T6SBjA==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "58571152",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:07 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:07 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+      "platform": "windows",
+      "version": "3.13.0.4026",
+      "filename": "UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "UURemote_3.13.0.4026.exe",
+            "size": 58590984,
+            "sha256": "2a10d16281af015a0adf3aec00c97ad1fffe124fe330e9b4b935a3d703aa83ba",
+            "version": "3.13.0.4026",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20250519132914Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 58590984,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg16DVMDvPtwlIGG6Ml2qo6vSlgdQATDUrpfCBtAsOEGCwq-4nWNZpqhlYGBoJ-g3IRrdXON4ufIgiOV",
+              "Last-Modified": "Mon, 19 May 2025 13:30:53 GMT",
+              "ETag": "\"a73151b912f62780bbc716411a298efd\"",
+              "x-goog-generation": "1747661453768320",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "58590984",
+              "x-goog-hash": "md5=pzFRuRL2J4C7xxZBGimO/Q==",
+              "x-amz-checksum-crc32c": "noyqEw==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "58590984",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:09 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:09 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+      "platform": "windows",
+      "version": "3.5.0.3517",
+      "filename": "UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "UURemote3.5.0.3517.exe",
+            "size": 54521400,
+            "sha256": "a2c1a8bcdea0899d3cb039d25bbef74893d5be56b679920047b1c395fcd716d6",
+            "version": "3.5.0.3517",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20250303132750Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 10,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+            "offset_seconds": 10,
+            "size": 54521400,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg2-6weMdeUa6SfIWQR2LcULd76vugw0wCFWP28pc4ulyKGHOI_bUtl3Nw9hBgI6YKS-qGtSISzWXIic",
+              "Last-Modified": "Mon, 03 Mar 2025 13:29:58 GMT",
+              "ETag": "\"fed32e12b53bd7b32d3552dab5a94d64\"",
+              "x-goog-generation": "1741008598764827",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "54521400",
+              "x-goog-hash": "md5=/tMuErU717MtNVLatalNZA==",
+              "x-amz-checksum-crc32c": "voN5ug==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "54521400",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:23 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:23 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+      "platform": "windows",
+      "version": "4.19.0.7454",
+      "filename": "UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.19.0.exe",
+            "size": 85041528,
+            "sha256": "368ed75e4448448d5b39e6ae34905e1876c2194b19d86f34b89adc36de45921d",
+            "version": "4.19.0.7454",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260403105023Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 85041528,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg0it9SBHSO3NuJtjAiZttQud5_CrdS6F5xqpnI4PJEx-WJ0YaynH5V7xVJ-6VxLM94IOw4NLtrI9UVg",
+              "Last-Modified": "Fri, 03 Apr 2026 10:52:50 GMT",
+              "ETag": "\"f056c2c678ae1889859dc5e085c9d8a8\"",
+              "x-goog-generation": "1775213570972538",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "85041528",
+              "x-goog-hash": "md5=8FbCxniuGImFncXghcnYqA==",
+              "x-amz-checksum-crc32c": "fYO4lw==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "85041528",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:24 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:24 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+      "platform": "windows",
+      "version": "4.26.0.8259",
+      "filename": "UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.26.0.exe",
+            "size": 87762072,
+            "sha256": "97bf752ed99baa67323577f4ff40fe42616d54a04de0d1f84657ce501c492a17",
+            "version": "4.26.0.8259",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260529121526Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 87762072,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg0QXfFYshlUB85MAXTnAM0SKElyVAdyb1obsD2nw_pxcRfeczoV3eW5hu6GuTcQGC303DJtTzUw64DD",
+              "Last-Modified": "Fri, 29 May 2026 12:18:03 GMT",
+              "ETag": "\"224450cd0d3473f7296755fbe357b6a5\"",
+              "x-goog-generation": "1780057083295029",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "87762072",
+              "x-goog-hash": "md5=IkRQzQ00c/cpZ1X741e2pQ==",
+              "x-amz-checksum-crc32c": "iOmtdg==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "87762072",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:25 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:25 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+      "platform": "windows",
+      "version": "4.27.2.8374",
+      "filename": "UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.27.2.8374_tj.exe",
+            "size": 88280288,
+            "sha256": "d433719744d5f987ae2435c8c105abb5e4f48617ce0910134ece9a79c1f07bcb",
+            "version": "4.27.2.8374",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260608120749Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 6,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+            "offset_seconds": 6,
+            "size": 88280288,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg1zVQtXU3znoW2YDz-JcHbl8ndZkXptwke1FPpqpeRoUbLyV6SMoW-tIQ7C9kpVfp11MBEq_BXqemoX",
+              "Last-Modified": "Mon, 08 Jun 2026 12:16:46 GMT",
+              "ETag": "\"ea0eb8d0bb19b1777432109a4ea03810\"",
+              "x-goog-generation": "1780921006798681",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "88280288",
+              "x-goog-hash": "md5=6g640LsZsXd0MhCaTqA4EA==",
+              "x-amz-checksum-crc32c": "nHtAGA==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "88280288",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:26 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:26 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2001:b034:700:580::cb4a:5fd8"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+      "platform": "windows",
+      "version": "4.35.0.9113",
+      "filename": "UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.35.0.9113_tj.exe",
+            "size": 78061272,
+            "sha256": "06ada871964f130573e29d72ddd8e3da8dfadeb489cdf8870dd1ace49518615c",
+            "version": "4.35.0.9113",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260801140942Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 78061272,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg3-bRSI1DRa9lU58NjOYGrRgp0LmhiG7JNbwLC6y1nDOoKlLoHxGeKIjL4XCbq6R5uLLf_-fUfuHbsC",
+              "Last-Modified": "Sat, 01 Aug 2026 14:11:40 GMT",
+              "ETag": "\"61a7cff93de58e9a29dfbf0825f140cd\"",
+              "x-goog-generation": "1785593500773746",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "78061272",
+              "x-goog-hash": "md5=YafP+T3ljpop378IJfFAzQ==",
+              "x-amz-checksum-crc32c": "oyNSSA==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "78061272",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:28 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:28 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+      "platform": "windows",
+      "version": "4.38.3.9325",
+      "filename": "UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.38.3.9325_tj.exe",
+            "size": 85557632,
+            "sha256": "c1e6f2a12463027d4a92badcac913ea61aeca82211999369b7614c3a6b032b18",
+            "version": "4.38.3.9325",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260821160752Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 6,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+            "offset_seconds": 6,
+            "size": 85557632,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg1dEUS2U8aD2laBb3WVxpiVQ9ru81-62_n2t6pN-Iajz36xJpX0WsoYzwq2wT2iu8YrK544W4t7gXjt",
+              "Last-Modified": "Fri, 21 Aug 2026 16:09:16 GMT",
+              "ETag": "\"c1b4430d8725fdd1639ed31c77a3320c\"",
+              "x-goog-generation": "1787328556558224",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "85557632",
+              "x-goog-hash": "md5=wbRDDYcl/dFjntMcd6MyDA==",
+              "x-amz-checksum-crc32c": "k2Im7Q==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "85557632",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:49:30 GMT",
+              "Date": "Thu, 26 Nov 2026 21:49:30 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+      "platform": "windows",
+      "version": "4.16.5.6944",
+      "filename": "UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc.4.16.5.6944.exe",
+            "size": 84214680,
+            "sha256": "01a80012843c2dfa725526ef8db3d52e024a5fad1c47fe8f3f2a09a573439045",
+            "version": "4.16.5.6944",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260209112312Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 6,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+            "offset_seconds": 6,
+            "size": 84214680,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg3u6hsO6d_LCNpY9QXDGPKrKcJXTC4fN-JcqPkoDH-_DqN6thM5dadK7FhStLcBH-5cDfBVNCd3f72g",
+              "Last-Modified": "Mon, 09 Feb 2026 11:25:29 GMT",
+              "ETag": "\"b8e68a1cc4e0caacc4be4d6fd3e69f2b\"",
+              "x-goog-generation": "1770636329492510",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "84214680",
+              "x-goog-hash": "md5=uOaKHMTgyqzEvk1v0+afKw==",
+              "x-amz-checksum-crc32c": "tu1Dvg==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "84214680",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:51:14 GMT",
+              "Date": "Thu, 26 Nov 2026 21:51:14 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+      "platform": "windows",
+      "version": "4.16.6.6950",
+      "filename": "UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc.4.16.6.6950.exe",
+            "size": 84221192,
+            "sha256": "3e123458f70336be6cd9f9b6c7aae5ce41acf3fd3b0ade35d5ae76d293412e03",
+            "version": "4.16.6.6950",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260209132716Z"
+            ]
+          },
+          "radius_seconds": 100,
+          "offset_seconds": 7,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+            "offset_seconds": 7,
+            "size": 84221192,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg1b0-WhOBZnQDJ6kvbPix2cAZD9OayKriGtCIp2QvGx790kTuJVOwmzEtUH3ay4vqsZi0-qe2pCpR5e",
+              "Last-Modified": "Mon, 09 Feb 2026 13:30:00 GMT",
+              "ETag": "\"8886f4383923ecee5144af4f6821306f\"",
+              "x-goog-generation": "1770643800741907",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "84221192",
+              "x-goog-hash": "md5=iIb0ODkj7O5RRK9PaCEwbw==",
+              "x-amz-checksum-crc32c": "+Mzk6Q==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "84221192",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:51:16 GMT",
+              "Date": "Thu, 26 Nov 2026 21:51:16 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "filename_timezone": "UTC+08:00"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+      "platform": "windows",
+      "version": "4.40.0.1780",
+      "filename": "UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+            "size": 90795312,
+            "sha256": "b828a8171b71180277465a2c83611ee3c239c51600f70dd1635653d865138645",
+            "version": "4.40.0.1780",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260910170035Z"
+            ]
+          },
+          "radius_seconds": 300,
+          "offset_seconds": null,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+            "offset_seconds": null,
+            "size": 90795312,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg1uHE7zihxR6nGgRjMpZKdJd2VpKMGZ3bkwqLYcejxElMVRnswCB5Hu_n5CYVo78tdQJzUKrkdGI_t9",
+              "Last-Modified": "Thu, 10 Sep 2026 17:01:40 GMT",
+              "ETag": "\"89648fac14a18d51c393429b097d8a6f\"",
+              "x-goog-generation": "1789059700360399",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "90795312",
+              "x-goog-hash": "md5=iWSPrBShjVHDk0KbCX2Kbw==",
+              "x-amz-checksum-crc32c": "IUgpLA==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "90795312",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:53:26 GMT",
+              "Date": "Thu, 26 Nov 2026 21:53:26 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "discovery": "retained-original-filename"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+      "platform": "windows",
+      "version": "4.42.0.2770",
+      "filename": "UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.42.0.2770_tj.exe",
+            "size": 89664288,
+            "sha256": "d3a7776f6fb00b196e2fcbf8acba06fd52b19437b0da80fec0ae838ee362f06f",
+            "version": "4.42.0.2770",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20260923142609Z"
+            ]
+          },
+          "radius_seconds": 300,
+          "offset_seconds": -138,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+            "offset_seconds": -138,
+            "size": 89664288,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg3eGr00NNSLZTnF_d8A3N1SNoYM0mdlQn-Sfpe94RJ-fip6zyUrOO2OE__HWjXK-yldqxABxLaywB0u",
+              "Last-Modified": "Wed, 23 Sep 2026 14:27:15 GMT",
+              "ETag": "\"a0dbb7d54622360c39a8cda8c40ea7e7\"",
+              "x-goog-generation": "1790173635261132",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "89664288",
+              "x-goog-hash": "md5=oNu31UYiNgw5qM2oxA6n5w==",
+              "x-amz-checksum-crc32c": "k2MKIQ==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "89664288",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:54:25 GMT",
+              "Date": "Thu, 26 Nov 2026 21:54:25 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+            },
+            "filename_timezone": "UTC"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+      "platform": "windows",
+      "version": "4.43.0.3607",
+      "filename": "UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.43.0.3607_tj_2.exe",
+            "size": 91219072,
+            "sha256": "f26f84f01551538b9f6996d5cf0ccbf884fb12731903a4f3efa73be712c44da4",
+            "version": "4.43.0.3607",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20261015144357Z"
+            ]
+          },
+          "radius_seconds": 300,
+          "offset_seconds": -209,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+            "offset_seconds": -209,
+            "size": 91219072,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg1DjqbG7EiE5-OQjKW5-VLtO123RV2QNoGxQIvbVilGA6QQ7XpnzmMLa60bGsvldSRE2ASr0AsT6f0A",
+              "Last-Modified": "Thu, 15 Oct 2026 14:46:06 GMT",
+              "ETag": "\"7399d919dea0ae77692afbc099990b90\"",
+              "x-goog-generation": "1792075566724085",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "91219072",
+              "x-goog-hash": "md5=c5nZGd6grndpKvvAmZkLkA==",
+              "x-amz-checksum-crc32c": "f9Aczg==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "91219072",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:55:41 GMT",
+              "Date": "Thu, 26 Nov 2026 21:55:41 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+            },
+            "filename_timezone": "UTC"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+      "platform": "windows",
+      "version": "4.45.0.4318",
+      "filename": "UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.45.0.4318_tj.exe",
+            "size": 92764328,
+            "sha256": "49c9eac9566c528fa46c736e705eda5f7d9ea760cb6349bf9db81baab7b939aa",
+            "version": "4.45.0.4318",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20261029151100Z"
+            ]
+          },
+          "radius_seconds": 300,
+          "offset_seconds": -235,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+            "offset_seconds": -235,
+            "size": 92764328,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg02TZLLh2EzdjwCNRBY3PNDA8PrS8uGADQ6_l3H3Iy-4gsbnJZ1OcIMt1TojSwEzawxOWpy-YRBFLNj",
+              "Last-Modified": "Thu, 29 Oct 2026 15:12:23 GMT",
+              "ETag": "\"3534fef6b2cf6e680372fb0228ca7936\"",
+              "x-goog-generation": "1793286743356934",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "92764328",
+              "x-goog-hash": "md5=NTT+9rLPbmgDcvsCKMp5Ng==",
+              "x-amz-checksum-crc32c": "xwcIYA==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "92764328",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:56:34 GMT",
+              "Date": "Thu, 26 Nov 2026 21:56:34 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7f89"
+            },
+            "filename_timezone": "UTC"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://a56.gdl.netease.com/UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+      "platform": "windows",
+      "version": "4.49.0.6162",
+      "filename": "UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+      "evidence": [
+        {
+          "kind": "signature-time-derived",
+          "hint": {
+            "name": "uuyc_4.49.0.exe",
+            "size": 99500288,
+            "sha256": "6466c6b00a7bff54bed8ff25486e5e120f80f741c9f8070d566a14c713325d3f",
+            "version": "4.49.0.6162",
+            "signature_status": "Valid",
+            "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+            "timestamp_hints": [
+              "20261126083942Z"
+            ]
+          },
+          "radius_seconds": 300,
+          "offset_seconds": -174,
+          "timezone_candidates": [
+            "UTC",
+            "UTC+08:00"
+          ],
+          "official_head": {
+            "url": "https://a56.gdl.netease.com/UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+            "offset_seconds": -174,
+            "size": 99500288,
+            "headers": {
+              "Content-Type": "application/x-msdos-program",
+              "X-GUploader-UploadID": "AFy3sg2miX73QkQjaWO3b-HBHMQHaxaALZbrI66ut2lrTWrRQCV1R5EbfKzLj71iXvTEQP0u7KXedGks2zCV",
+              "Last-Modified": "Thu, 26 Nov 2026 08:40:51 GMT",
+              "ETag": "\"da45c8474cb348664bc59dae1cf61943-3\"",
+              "x-goog-generation": "1795682451607597",
+              "x-goog-metageneration": "1",
+              "x-goog-stored-content-encoding": "identity",
+              "x-goog-stored-content-length": "99500288",
+              "x-goog-hash": "crc32c=vHXk0w==",
+              "x-amz-checksum-crc32c": "vHXk0w==",
+              "x-goog-storage-class": "STANDARD",
+              "Accept-Ranges": "bytes",
+              "Content-Length": "99500288",
+              "Server": "UploadServer",
+              "Cache-Control": "private, max-age=0",
+              "Expires": "Thu, 26 Nov 2026 21:57:31 GMT",
+              "Date": "Thu, 26 Nov 2026 21:57:31 GMT",
+              "Connection": "close",
+              "Content-Disposition": "attachment; filename=UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Expose-Headers": "*",
+              "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+            },
+            "filename_timezone": "UTC"
+          }
+        }
+      ]
+    }
+  ],
+  "searches": [
+    {
+      "hint": {
+        "name": "UURemote_3.11.0.3887.exe",
+        "size": 58571152,
+        "sha256": "78688d0e63a7d6bd96ea2b07c7fa7baa164149474a3aa87a486989d35e1dcd20",
+        "version": "3.11.0.3887",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250427153907Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 58571152,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg2_T4ewRuhsakTN4soqhoGH8eAUVppoGI2zoULsKNeE9nmf_yFvsgCYhp-pR7Jb8PZRJknC6ugZIyYi",
+            "Last-Modified": "Sun, 27 Apr 2025 15:40:52 GMT",
+            "ETag": "\"971753f67599fa3b48bc7c8f8ad5cf33\"",
+            "x-goog-generation": "1745768452148139",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "58571152",
+            "x-goog-hash": "md5=lxdT9nWZ+jtIvHyPitXPMw==",
+            "x-amz-checksum-crc32c": "T6SBjA==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "58571152",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:07 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:07 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_3.11.0.3887_0427233914_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote_3.13.0.4026.exe",
+        "size": 58590984,
+        "sha256": "2a10d16281af015a0adf3aec00c97ad1fffe124fe330e9b4b935a3d703aa83ba",
+        "version": "3.13.0.4026",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250519132914Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 58590984,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg16DVMDvPtwlIGG6Ml2qo6vSlgdQATDUrpfCBtAsOEGCwq-4nWNZpqhlYGBoJ-g3IRrdXON4ufIgiOV",
+            "Last-Modified": "Mon, 19 May 2025 13:30:53 GMT",
+            "ETag": "\"a73151b912f62780bbc716411a298efd\"",
+            "x-goog-generation": "1747661453768320",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "58590984",
+            "x-goog-hash": "md5=pzFRuRL2J4C7xxZBGimO/Q==",
+            "x-amz-checksum-crc32c": "noyqEw==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "58590984",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:09 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:09 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_3.13.0.4026_0519212921_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote_Setup_3.1.2.3189_0110171240_gwqd.exe",
+        "size": 54509784,
+        "sha256": "d97f2e4a46de82a6e547f859d080c4086c618584e0f16c742aef7019129103b1",
+        "version": "3.1.2.3189",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250110091232Z"
+        ]
+      },
+      "skipped": "Version already archived",
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote3.5.0.3517.exe",
+        "size": 54521400,
+        "sha256": "a2c1a8bcdea0899d3cb039d25bbef74893d5be56b679920047b1c395fcd716d6",
+        "version": "3.5.0.3517",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250303132750Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 24,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+          "offset_seconds": 10,
+          "size": 54521400,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg2-6weMdeUa6SfIWQR2LcULd76vugw0wCFWP28pc4ulyKGHOI_bUtl3Nw9hBgI6YKS-qGtSISzWXIic",
+            "Last-Modified": "Mon, 03 Mar 2025 13:29:58 GMT",
+            "ETag": "\"fed32e12b53bd7b32d3552dab5a94d64\"",
+            "x-goog-generation": "1741008598764827",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "54521400",
+            "x-goog-hash": "md5=/tMuErU717MtNVLatalNZA==",
+            "x-amz-checksum-crc32c": "voN5ug==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "54521400",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:23 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:23 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_3.5.0.3517_0303212800_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote3.5.1.3562.exe",
+        "size": 54548656,
+        "sha256": "22c69684ee60af8ef025dcbab32e1f3be307c9338519fd1e4cd8ac7a46d8b41c",
+        "version": "3.5.1.3562",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250310145248Z"
+        ]
+      },
+      "skipped": "Version already archived",
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.19.0.exe",
+        "size": 85041528,
+        "sha256": "368ed75e4448448d5b39e6ae34905e1876c2194b19d86f34b89adc36de45921d",
+        "version": "4.19.0.7454",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260403105023Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 85041528,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg0it9SBHSO3NuJtjAiZttQud5_CrdS6F5xqpnI4PJEx-WJ0YaynH5V7xVJ-6VxLM94IOw4NLtrI9UVg",
+            "Last-Modified": "Fri, 03 Apr 2026 10:52:50 GMT",
+            "ETag": "\"f056c2c678ae1889859dc5e085c9d8a8\"",
+            "x-goog-generation": "1775213570972538",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "85041528",
+            "x-goog-hash": "md5=8FbCxniuGImFncXghcnYqA==",
+            "x-amz-checksum-crc32c": "fYO4lw==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "85041528",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:24 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:24 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.19.0.7454_0403185030_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.26.0.exe",
+        "size": 87762072,
+        "sha256": "97bf752ed99baa67323577f4ff40fe42616d54a04de0d1f84657ce501c492a17",
+        "version": "4.26.0.8259",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260529121526Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 87762072,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg0QXfFYshlUB85MAXTnAM0SKElyVAdyb1obsD2nw_pxcRfeczoV3eW5hu6GuTcQGC303DJtTzUw64DD",
+            "Last-Modified": "Fri, 29 May 2026 12:18:03 GMT",
+            "ETag": "\"224450cd0d3473f7296755fbe357b6a5\"",
+            "x-goog-generation": "1780057083295029",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "87762072",
+            "x-goog-hash": "md5=IkRQzQ00c/cpZ1X741e2pQ==",
+            "x-amz-checksum-crc32c": "iOmtdg==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "87762072",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:25 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:25 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.26.0.8259_0529201533_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fca"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.27.2.8374_tj.exe",
+        "size": 88280288,
+        "sha256": "d433719744d5f987ae2435c8c105abb5e4f48617ce0910134ece9a79c1f07bcb",
+        "version": "4.27.2.8374",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260608120749Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+          "offset_seconds": 6,
+          "size": 88280288,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg1zVQtXU3znoW2YDz-JcHbl8ndZkXptwke1FPpqpeRoUbLyV6SMoW-tIQ7C9kpVfp11MBEq_BXqemoX",
+            "Last-Modified": "Mon, 08 Jun 2026 12:16:46 GMT",
+            "ETag": "\"ea0eb8d0bb19b1777432109a4ea03810\"",
+            "x-goog-generation": "1780921006798681",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "88280288",
+            "x-goog-hash": "md5=6g640LsZsXd0MhCaTqA4EA==",
+            "x-amz-checksum-crc32c": "nHtAGA==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "88280288",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:26 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:26 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.27.2.8374_0608200755_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2001:b034:700:580::cb4a:5fd8"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.32.0.8845_tj.exe",
+        "size": 89368456,
+        "sha256": "0737545f7917688c09ecf7a8a1e8c019936c8b7e9cfaa20ea374e2c058dda0c4",
+        "version": "4.32.0.8845",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260708025658Z"
+        ]
+      },
+      "skipped": "Version already archived",
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.35.0.9113_tj.exe",
+        "size": 78061272,
+        "sha256": "06ada871964f130573e29d72ddd8e3da8dfadeb489cdf8870dd1ace49518615c",
+        "version": "4.35.0.9113",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260801140942Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 78061272,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg3-bRSI1DRa9lU58NjOYGrRgp0LmhiG7JNbwLC6y1nDOoKlLoHxGeKIjL4XCbq6R5uLLf_-fUfuHbsC",
+            "Last-Modified": "Sat, 01 Aug 2026 14:11:40 GMT",
+            "ETag": "\"61a7cff93de58e9a29dfbf0825f140cd\"",
+            "x-goog-generation": "1785593500773746",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "78061272",
+            "x-goog-hash": "md5=YafP+T3ljpop378IJfFAzQ==",
+            "x-amz-checksum-crc32c": "oyNSSA==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "78061272",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:28 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:28 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.35.0.9113_0801220949_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.38.3.9325_tj.exe",
+        "size": 85557632,
+        "sha256": "c1e6f2a12463027d4a92badcac913ea61aeca82211999369b7614c3a6b032b18",
+        "version": "4.38.3.9325",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260821160752Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+          "offset_seconds": 6,
+          "size": 85557632,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg1dEUS2U8aD2laBb3WVxpiVQ9ru81-62_n2t6pN-Iajz36xJpX0WsoYzwq2wT2iu8YrK544W4t7gXjt",
+            "Last-Modified": "Fri, 21 Aug 2026 16:09:16 GMT",
+            "ETag": "\"c1b4430d8725fdd1639ed31c77a3320c\"",
+            "x-goog-generation": "1787328556558224",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "85557632",
+            "x-goog-hash": "md5=wbRDDYcl/dFjntMcd6MyDA==",
+            "x-amz-checksum-crc32c": "k2Im7Q==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "85557632",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:49:30 GMT",
+            "Date": "Thu, 26 Nov 2026 21:49:30 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.38.3.9325_0822000758_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc.4.16.5.6944.exe",
+        "size": 84214680,
+        "sha256": "01a80012843c2dfa725526ef8db3d52e024a5fad1c47fe8f3f2a09a573439045",
+        "version": "4.16.5.6944",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260209112312Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+          "offset_seconds": 6,
+          "size": 84214680,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg3u6hsO6d_LCNpY9QXDGPKrKcJXTC4fN-JcqPkoDH-_DqN6thM5dadK7FhStLcBH-5cDfBVNCd3f72g",
+            "Last-Modified": "Mon, 09 Feb 2026 11:25:29 GMT",
+            "ETag": "\"b8e68a1cc4e0caacc4be4d6fd3e69f2b\"",
+            "x-goog-generation": "1770636329492510",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "84214680",
+            "x-goog-hash": "md5=uOaKHMTgyqzEvk1v0+afKw==",
+            "x-amz-checksum-crc32c": "tu1Dvg==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "84214680",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:51:14 GMT",
+            "Date": "Thu, 26 Nov 2026 21:51:14 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.16.5.6944_0209192318_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc.4.16.6.6950.exe",
+        "size": 84221192,
+        "sha256": "3e123458f70336be6cd9f9b6c7aae5ce41acf3fd3b0ade35d5ae76d293412e03",
+        "version": "4.16.6.6950",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260209132716Z"
+        ]
+      },
+      "radius_seconds": 100,
+      "timezone": "UTC+08:00",
+      "attempts": 18,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+          "offset_seconds": 7,
+          "size": 84221192,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg1b0-WhOBZnQDJ6kvbPix2cAZD9OayKriGtCIp2QvGx790kTuJVOwmzEtUH3ay4vqsZi0-qe2pCpR5e",
+            "Last-Modified": "Mon, 09 Feb 2026 13:30:00 GMT",
+            "ETag": "\"8886f4383923ecee5144af4f6821306f\"",
+            "x-goog-generation": "1770643800741907",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "84221192",
+            "x-goog-hash": "md5=iIb0ODkj7O5RRK9PaCEwbw==",
+            "x-amz-checksum-crc32c": "+Mzk6Q==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "84221192",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:51:16 GMT",
+            "Date": "Thu, 26 Nov 2026 21:51:16 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.16.6.6950_0209212723_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "filename_timezone": "UTC+08:00"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+        "size": 90795312,
+        "sha256": "b828a8171b71180277465a2c83611ee3c239c51600f70dd1635653d865138645",
+        "version": "4.40.0.1780",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260910170035Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "attempts": 1,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+          "offset_seconds": null,
+          "size": 90795312,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg1uHE7zihxR6nGgRjMpZKdJd2VpKMGZ3bkwqLYcejxElMVRnswCB5Hu_n5CYVo78tdQJzUKrkdGI_t9",
+            "Last-Modified": "Thu, 10 Sep 2026 17:01:40 GMT",
+            "ETag": "\"89648fac14a18d51c393429b097d8a6f\"",
+            "x-goog-generation": "1789059700360399",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "90795312",
+            "x-goog-hash": "md5=iWSPrBShjVHDk0KbCX2Kbw==",
+            "x-amz-checksum-crc32c": "IUgpLA==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "90795312",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:53:26 GMT",
+            "Date": "Thu, 26 Nov 2026 21:53:26 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "discovery": "retained-original-filename"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.42.0.2770_tj.exe",
+        "size": 89664288,
+        "sha256": "d3a7776f6fb00b196e2fcbf8acba06fd52b19437b0da80fec0ae838ee362f06f",
+        "version": "4.42.0.2770",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20260923142609Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "attempts": 276,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+          "offset_seconds": -138,
+          "size": 89664288,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg3eGr00NNSLZTnF_d8A3N1SNoYM0mdlQn-Sfpe94RJ-fip6zyUrOO2OE__HWjXK-yldqxABxLaywB0u",
+            "Last-Modified": "Wed, 23 Sep 2026 14:27:15 GMT",
+            "ETag": "\"a0dbb7d54622360c39a8cda8c40ea7e7\"",
+            "x-goog-generation": "1790173635261132",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "89664288",
+            "x-goog-hash": "md5=oNu31UYiNgw5qM2oxA6n5w==",
+            "x-amz-checksum-crc32c": "k2MKIQ==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "89664288",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:54:25 GMT",
+            "Date": "Thu, 26 Nov 2026 21:54:25 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.42.0.2770_0923142351_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+          },
+          "filename_timezone": "UTC"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.43.0.3607_tj_2.exe",
+        "size": 91219072,
+        "sha256": "f26f84f01551538b9f6996d5cf0ccbf884fb12731903a4f3efa73be712c44da4",
+        "version": "4.43.0.3607",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20261015144357Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "attempts": 420,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+          "offset_seconds": -209,
+          "size": 91219072,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg1DjqbG7EiE5-OQjKW5-VLtO123RV2QNoGxQIvbVilGA6QQ7XpnzmMLa60bGsvldSRE2ASr0AsT6f0A",
+            "Last-Modified": "Thu, 15 Oct 2026 14:46:06 GMT",
+            "ETag": "\"7399d919dea0ae77692afbc099990b90\"",
+            "x-goog-generation": "1792075566724085",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "91219072",
+            "x-goog-hash": "md5=c5nZGd6grndpKvvAmZkLkA==",
+            "x-amz-checksum-crc32c": "f9Aczg==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "91219072",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:55:41 GMT",
+            "Date": "Thu, 26 Nov 2026 21:55:41 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.43.0.3607_1015144028_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+          },
+          "filename_timezone": "UTC"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.45.0.4318_tj.exe",
+        "size": 92764328,
+        "sha256": "49c9eac9566c528fa46c736e705eda5f7d9ea760cb6349bf9db81baab7b939aa",
+        "version": "4.45.0.4318",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20261029151100Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "attempts": 474,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+          "offset_seconds": -235,
+          "size": 92764328,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg02TZLLh2EzdjwCNRBY3PNDA8PrS8uGADQ6_l3H3Iy-4gsbnJZ1OcIMt1TojSwEzawxOWpy-YRBFLNj",
+            "Last-Modified": "Thu, 29 Oct 2026 15:12:23 GMT",
+            "ETag": "\"3534fef6b2cf6e680372fb0228ca7936\"",
+            "x-goog-generation": "1793286743356934",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "92764328",
+            "x-goog-hash": "md5=NTT+9rLPbmgDcvsCKMp5Ng==",
+            "x-amz-checksum-crc32c": "xwcIYA==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "92764328",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:56:34 GMT",
+            "Date": "Thu, 26 Nov 2026 21:56:34 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.45.0.4318_1029150705_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7f89"
+          },
+          "filename_timezone": "UTC"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "uuyc_4.49.0.exe",
+        "size": 99500288,
+        "sha256": "6466c6b00a7bff54bed8ff25486e5e120f80f741c9f8070d566a14c713325d3f",
+        "version": "4.49.0.6162",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20261126083942Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "attempts": 348,
+      "errors": [],
+      "matches": [
+        {
+          "url": "https://a56.gdl.netease.com/UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+          "offset_seconds": -174,
+          "size": 99500288,
+          "headers": {
+            "Content-Type": "application/x-msdos-program",
+            "X-GUploader-UploadID": "AFy3sg2miX73QkQjaWO3b-HBHMQHaxaALZbrI66ut2lrTWrRQCV1R5EbfKzLj71iXvTEQP0u7KXedGks2zCV",
+            "Last-Modified": "Thu, 26 Nov 2026 08:40:51 GMT",
+            "ETag": "\"da45c8474cb348664bc59dae1cf61943-3\"",
+            "x-goog-generation": "1795682451607597",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "x-goog-stored-content-length": "99500288",
+            "x-goog-hash": "crc32c=vHXk0w==",
+            "x-amz-checksum-crc32c": "vHXk0w==",
+            "x-goog-storage-class": "STANDARD",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "99500288",
+            "Server": "UploadServer",
+            "Cache-Control": "private, max-age=0",
+            "Expires": "Thu, 26 Nov 2026 21:57:31 GMT",
+            "Date": "Thu, 26 Nov 2026 21:57:31 GMT",
+            "Connection": "close",
+            "Content-Disposition": "attachment; filename=UURemote_Setup_4.49.0.6162_1126083648_gwqd.exe",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "x-cache-ip": "2600:1417:e800::b81a:7fa1"
+          },
+          "filename_timezone": "UTC"
+        }
+      ],
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "UURemote_32_0.1.5.535.exe",
+        "size": 23713768,
+        "sha256": "cdeef395bfe7ac871190e0509180119121451f07b701dd16d1d7702e1b5c8eb5",
+        "version": "0.1.5.535",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN, OID.2.5.4.15=Private Organization",
+        "timestamp_hints": [
+          "20230628074040Z"
+        ]
+      },
+      "radius_seconds": 300,
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ],
+      "attempts": 1202,
+      "errors": [],
+      "matches": []
+    },
+    {
+      "hint": {
+        "name": "uuyuancheng3.12.0.3969.exe",
+        "size": 64209584,
+        "sha256": "985bafcf5da79cd3b280a47c33ae007ee263e96f18ff4cfe30600eb090d10382",
+        "version": "4.4.0.5195",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250910231218Z"
+        ]
+      },
+      "skipped": "Version already archived",
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    },
+    {
+      "hint": {
+        "name": "wangyiuuyc_4.2.4.4626.exe",
+        "size": 63744480,
+        "sha256": "898fb4c1edcc60edb2329d64d92f88c514b3bba41320d41b06d6305ee49bfc74",
+        "version": "4.2.4.4626",
+        "signature_status": "Valid",
+        "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+        "timestamp_hints": [
+          "20250728133821Z"
+        ]
+      },
+      "skipped": "Version already archived",
+      "timezone_candidates": [
+        "UTC",
+        "UTC+08:00"
+      ]
+    }
+  ],
+  "input_hints": [
+    {
+      "name": "UURemote_3.11.0.3887.exe",
+      "size": 58571152,
+      "sha256": "78688d0e63a7d6bd96ea2b07c7fa7baa164149474a3aa87a486989d35e1dcd20",
+      "version": "3.11.0.3887",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250427153907Z"
+      ]
+    },
+    {
+      "name": "UURemote_3.13.0.4026.exe",
+      "size": 58590984,
+      "sha256": "2a10d16281af015a0adf3aec00c97ad1fffe124fe330e9b4b935a3d703aa83ba",
+      "version": "3.13.0.4026",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250519132914Z"
+      ]
+    },
+    {
+      "name": "UURemote_32_0.1.5.535.exe",
+      "size": 23713768,
+      "sha256": "cdeef395bfe7ac871190e0509180119121451f07b701dd16d1d7702e1b5c8eb5",
+      "version": "0.1.5.535",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN, OID.2.5.4.15=Private Organization",
+      "timestamp_hints": [
+        "20230628074040Z"
+      ]
+    },
+    {
+      "name": "UURemote_64_0.1.5.535.exe",
+      "size": 23713768,
+      "sha256": "cdeef395bfe7ac871190e0509180119121451f07b701dd16d1d7702e1b5c8eb5",
+      "version": "0.1.5.535",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN, OID.2.5.4.15=Private Organization",
+      "timestamp_hints": [
+        "20230628074040Z"
+      ]
+    },
+    {
+      "name": "UURemote_Setup_3.1.2.3189_0110171240_gwqd.exe",
+      "size": 54509784,
+      "sha256": "d97f2e4a46de82a6e547f859d080c4086c618584e0f16c742aef7019129103b1",
+      "version": "3.1.2.3189",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250110091232Z"
+      ]
+    },
+    {
+      "name": "UURemote_Setup_4.40.0.1780_0910162120_netease.mj43950_lsxzw_cpa_dev.exe",
+      "size": 90795312,
+      "sha256": "b828a8171b71180277465a2c83611ee3c239c51600f70dd1635653d865138645",
+      "version": "4.40.0.1780",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260910170035Z"
+      ]
+    },
+    {
+      "name": "UURemote3.5.0.3517.exe",
+      "size": 54521400,
+      "sha256": "a2c1a8bcdea0899d3cb039d25bbef74893d5be56b679920047b1c395fcd716d6",
+      "version": "3.5.0.3517",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250303132750Z"
+      ]
+    },
+    {
+      "name": "UURemote3.5.1.3562.exe",
+      "size": 54548656,
+      "sha256": "22c69684ee60af8ef025dcbab32e1f3be307c9338519fd1e4cd8ac7a46d8b41c",
+      "version": "3.5.1.3562",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250310145248Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.19.0.exe",
+      "size": 85041528,
+      "sha256": "368ed75e4448448d5b39e6ae34905e1876c2194b19d86f34b89adc36de45921d",
+      "version": "4.19.0.7454",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260403105023Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.26.0.exe",
+      "size": 87762072,
+      "sha256": "97bf752ed99baa67323577f4ff40fe42616d54a04de0d1f84657ce501c492a17",
+      "version": "4.26.0.8259",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260529121526Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.27.2.8374_tj.exe",
+      "size": 88280288,
+      "sha256": "d433719744d5f987ae2435c8c105abb5e4f48617ce0910134ece9a79c1f07bcb",
+      "version": "4.27.2.8374",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260608120749Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.32.0.8845_tj.exe",
+      "size": 89368456,
+      "sha256": "0737545f7917688c09ecf7a8a1e8c019936c8b7e9cfaa20ea374e2c058dda0c4",
+      "version": "4.32.0.8845",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260708025658Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.35.0.9113_tj.exe",
+      "size": 78061272,
+      "sha256": "06ada871964f130573e29d72ddd8e3da8dfadeb489cdf8870dd1ace49518615c",
+      "version": "4.35.0.9113",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260801140942Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.38.3.9325_tj.exe",
+      "size": 85557632,
+      "sha256": "c1e6f2a12463027d4a92badcac913ea61aeca82211999369b7614c3a6b032b18",
+      "version": "4.38.3.9325",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260821160752Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.42.0.2770_tj.exe",
+      "size": 89664288,
+      "sha256": "d3a7776f6fb00b196e2fcbf8acba06fd52b19437b0da80fec0ae838ee362f06f",
+      "version": "4.42.0.2770",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260923142609Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.42.0.2770.exe",
+      "size": 89664288,
+      "sha256": "d3a7776f6fb00b196e2fcbf8acba06fd52b19437b0da80fec0ae838ee362f06f",
+      "version": "4.42.0.2770",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260923142609Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.43.0.3607_tj_2.exe",
+      "size": 91219072,
+      "sha256": "f26f84f01551538b9f6996d5cf0ccbf884fb12731903a4f3efa73be712c44da4",
+      "version": "4.43.0.3607",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20261015144357Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.43.0.3607_tj_3.exe",
+      "size": 91219072,
+      "sha256": "f26f84f01551538b9f6996d5cf0ccbf884fb12731903a4f3efa73be712c44da4",
+      "version": "4.43.0.3607",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20261015144357Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.43.0.3607_tj.exe",
+      "size": 91219072,
+      "sha256": "f26f84f01551538b9f6996d5cf0ccbf884fb12731903a4f3efa73be712c44da4",
+      "version": "4.43.0.3607",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20261015144357Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.45.0.4318_tj.exe",
+      "size": 92764328,
+      "sha256": "49c9eac9566c528fa46c736e705eda5f7d9ea760cb6349bf9db81baab7b939aa",
+      "version": "4.45.0.4318",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20261029151100Z"
+      ]
+    },
+    {
+      "name": "uuyc_4.49.0.exe",
+      "size": 99500288,
+      "sha256": "6466c6b00a7bff54bed8ff25486e5e120f80f741c9f8070d566a14c713325d3f",
+      "version": "4.49.0.6162",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20261126083942Z"
+      ]
+    },
+    {
+      "name": "uuyc.4.16.5.6944.exe",
+      "size": 84214680,
+      "sha256": "01a80012843c2dfa725526ef8db3d52e024a5fad1c47fe8f3f2a09a573439045",
+      "version": "4.16.5.6944",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260209112312Z"
+      ]
+    },
+    {
+      "name": "uuyc.4.16.6.6950.exe",
+      "size": 84221192,
+      "sha256": "3e123458f70336be6cd9f9b6c7aae5ce41acf3fd3b0ade35d5ae76d293412e03",
+      "version": "4.16.6.6950",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20260209132716Z"
+      ]
+    },
+    {
+      "name": "uuyuancheng3.12.0.3969.exe",
+      "size": 64209584,
+      "sha256": "985bafcf5da79cd3b280a47c33ae007ee263e96f18ff4cfe30600eb090d10382",
+      "version": "4.4.0.5195",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250910231218Z"
+      ]
+    },
+    {
+      "name": "wangyiuuyc_4.2.4.4626.exe",
+      "size": 63744480,
+      "sha256": "898fb4c1edcc60edb2329d64d92f88c514b3bba41320d41b06d6305ee49bfc74",
+      "version": "4.2.4.4626",
+      "signature_status": "Valid",
+      "signer": "CN=\"NetEase (Hangzhou) Network Co., Ltd\", O=\"NetEase (Hangzhou) Network Co., Ltd\", L=杭州市, S=浙江省, C=CN, SERIALNUMBER=91330000788831167A, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=浙江省, OID.1.3.6.1.4.1.311.60.2.1.3=CN",
+      "timestamp_hints": [
+        "20250728133821Z"
+      ]
+    }
+  ],
+  "search_summary": {
+    "unique_versions": 21,
+    "matched_versions": 15,
+    "previously_archived_versions": 5,
+    "not_found_versions": [
+      "0.1.5.535"
+    ]
+  }
+}

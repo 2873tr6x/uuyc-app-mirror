@@ -68,6 +68,8 @@ python scripts/mirror.py --probe-only
 
 ## 历史与限制
 
+另提供 [Windows 签名时间线索回溯](https://github.com/2873tr6x/uuyc-app-mirror/releases/tag/uuyc-windows-history-2026-11-27)：以第三方文件的内部版本和签名时间作为线索，有界探测网易官方地址，再由 Windows Actions 重新下载并核对网易 Authenticode 签名、内部版本与 SHA-256。[执行方法与限制](docs/windows-signature-recovery.md)。第三方文件本体不上传。
+
 除持续镜像外，提供一份 [Wayback 历史回溯归档](https://github.com/2873tr6x/uuyc-app-mirror/releases/tag/uuyc-history-2026-11-27)：从历史官网、ADL 分发页、官方 API 302 和 CDN 索引恢复旧包地址，再直接从网易官方 CDN 下载。它是独立的一次性 Release，不推进 Latest；[来源与执行方法](docs/history-backfill.md)记录证据等级、历史摘要校验及覆盖缺口。
 
 **不能恢复没有公开来源或官方 CDN 已失效的所有旧版**。常规镜像每次归档的是官网当前四个平台的组合，不是官方统一版本声明；版本取自官方文件名，未提取包内版本或验证厂商签名。

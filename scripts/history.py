@@ -236,7 +236,7 @@ def source_for(package):
     if not parsed or any(parsed[k] != package[k] for k in ('platform', 'version', 'filename', 'url')):
         raise ValueError('Candidate identity does not match official URL')
     if not package.get('evidence'):
-        raise ValueError('Candidate lacks archived evidence')
+        raise ValueError('Candidate lacks provenance evidence')
     with mirror.request(package['url'], 'HEAD') as response:
         if mirror.stable_url(response.url) != package['url']:
             raise ValueError('Historical CDN path redirects to a different package')
@@ -462,7 +462,7 @@ def execute(args):
         return
     if args.publish and not release:
         release = mirror.api(f'repos/{args.repo}/releases', '--method', 'POST', '-f', 'tag_name=' + TAG,
-                             '-f', 'name=UU 远程历史版本一次性回溯 · 2026-11-27', '-F', 'draft=true',
+                             '-f', 'name=' + plan.get('release_title', 'UU 远程历史版本一次性回溯 · 2026-11-27'), '-F', 'draft=true',
                              '-f', 'target_commitish=' + os.environ.get('GITHUB_SHA', 'main'))
     elif args.publish:
         # Always include tag_name: GitHub may reset a draft tag when only target changes.
@@ -537,6 +537,9 @@ def execute(args):
 """
     notes += '\n'.join(f"| {p['platform']} | {p['version']} | `{p['upstream_filename']}` | {'是' if p['archived_payload_sha1_verified'] else '无可用历史二进制摘要'} |" for p in result['packages'])
     notes += '\n\n`historical-manifest.json` 记录每个包的来源证据、大小、SHA-256、历史 SHA-1 和失败清单；`' + PLAN.name + '` 是执行前冻结的完整候选计划。`SHA256SUMS.txt` 包含新补齐安装包和 metadata 的校验和。\n\n[本次 Actions 日志](' + result['run_url'] + ')。这是独立历史归档，不推进 Latest，也不修改现有定时镜像。\n'
+    if plan.get('release_intro'):
+        table = notes[notes.index('| 平台 |'):]
+        notes = plan['release_intro'] + f"\n\n命中候选处理结果：新归档 {len(result['packages'])} 个，已归档 {len(result['already_archived'])} 个，下载或校验失败 {len(result['unavailable'])} 个。\n\n" + table
     (OUT / 'historical-notes.md').write_text(notes, encoding='utf-8')
     sums = [p['sha256'] + '  ' + p['asset_name'] for p in result['packages']]
     for name in ('historical-manifest.json', PLAN.name):
