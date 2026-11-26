@@ -22,6 +22,17 @@ class Response(io.BytesIO):
 
 
 class HistoryTests(unittest.TestCase):
+    def test_truncated_transport_is_retried(self):
+        with patch.object(h, 'fetch_package', side_effect=[ValueError('Incomplete historical package'), {'verified': True}]) as fetch, patch.object(h.time, 'sleep'):
+            self.assertEqual(h.fetch_with_retry({'url': 'test'}), {'verified': True})
+            self.assertEqual(fetch.call_count, 2)
+
+    def test_historical_digest_mismatch_is_not_treated_as_network_retry(self):
+        with patch.object(h, 'fetch_package', side_effect=ValueError('Live CDN payload differs from all archived binary SHA-1 digests')) as fetch:
+            with self.assertRaisesRegex(ValueError, 'differs from all archived'):
+                h.fetch_with_retry({'url': 'test'})
+            fetch.assert_called_once()
+
     def test_checkpoint_reuses_only_matching_plan_and_remote_digest(self):
         url = 'https://a56.gdl.netease.com/uuyc_4.3.1.apk'
         candidate = h.package_url(url)

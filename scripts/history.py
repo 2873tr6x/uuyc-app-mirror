@@ -394,6 +394,11 @@ def fetch_with_retry(package):
             if attempt == 2:
                 raise
             time.sleep(3 * (attempt + 1))
+        except ValueError as error:
+            transient = str(error).startswith(('Incomplete historical package', 'CDN metadata changed during historical download'))
+            if not transient or attempt == 2:
+                raise
+            time.sleep(3 * (attempt + 1))
 
 
 def prefetched_packages(packages):
