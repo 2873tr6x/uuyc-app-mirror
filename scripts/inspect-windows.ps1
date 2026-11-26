@@ -16,7 +16,7 @@ $rows = foreach ($file in Get-ChildItem -LiteralPath $Source -Filter '*.exe' -Fi
         foreach ($counter in $signer.CounterSignerInfos) {
             foreach ($attr in $counter.SignedAttributes) {
                 if ($attr.Oid.Value -eq '1.2.840.113549.1.9.5') {
-                    foreach ($value in $attr.Values) { $times += ([Security.Cryptography.Pkcs.Pkcs9SigningTime]::new($value.RawData)).SigningTime.ToUniversalTime().ToString('o') }
+                    foreach ($value in $attr.Values) { $times += ([Security.Cryptography.Pkcs.Pkcs9SigningTime]::new($value.RawData)).SigningTime.ToUniversalTime().ToString("yyyyMMddHHmmss'Z'") }
                 }
             }
         }
