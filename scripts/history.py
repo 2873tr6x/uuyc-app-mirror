@@ -3,6 +3,7 @@
 import argparse
 import base64
 import concurrent.futures
+from collections import deque
 from datetime import datetime, timezone
 import email.utils
 import gzip
@@ -384,6 +385,34 @@ def fetch_package(package):
             'evidence': package['evidence']}
 
 
+def fetch_with_retry(package):
+    for attempt in range(3):
+        try:
+            return fetch_package(package)
+        except (OSError, urllib.error.URLError, http.client.HTTPException):
+            if attempt == 2:
+                raise
+            time.sleep(3 * (attempt + 1))
+
+
+def prefetched_packages(packages):
+    """Keep at most three temporary binaries while serializing upload/verification."""
+    iterator = iter(enumerate(packages, 1))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        pending = deque()
+        for _ in range(3):
+            item = next(iterator, None)
+            if item:
+                number, package = item
+                pending.append((number, package, pool.submit(fetch_with_retry, package)))
+        while pending:
+            yield pending.popleft()
+            item = next(iterator, None)
+            if item:
+                number, package = item
+                pending.append((number, package, pool.submit(fetch_with_retry, package)))
+
+
 def execute(args):
     plan = json.loads(PLAN.read_text(encoding='utf-8'))
     OUT.mkdir(parents=True, exist_ok=True)
@@ -412,18 +441,11 @@ def execute(args):
                     if asset.get('digest'):
                         existing[(asset['name'], asset['digest'])] = prior['html_url']
 
-    for number, package in enumerate(plan['packages'], 1):
+    for number, package, future in prefetched_packages(plan['packages']):
         mirror.summary(f"Historical download {number}/{len(plan['packages'])}: {package['filename']}")
         path = OUT / (package['platform'] + '--' + package['filename'])
         try:
-            for attempt in range(3):
-                try:
-                    recovered = fetch_package(package)
-                    break
-                except (OSError, urllib.error.URLError, http.client.HTTPException):
-                    if attempt == 2:
-                        raise
-                    time.sleep(3 * (attempt + 1))
+            recovered = future.result()
             digest = 'sha256:' + recovered['sha256']
             prior = existing.get((recovered['asset_name'], digest))
             if prior:

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import threading
 import unittest
 from unittest.mock import patch
 
@@ -21,6 +22,23 @@ class Response(io.BytesIO):
 
 
 class HistoryTests(unittest.TestCase):
+    def test_prefetch_never_accumulates_more_than_three_packages(self):
+        started = []
+        three_started = threading.Event()
+        def fetch(package):
+            started.append(package)
+            if len(started) == 3:
+                three_started.set()
+            return package
+        with patch.object(h, 'fetch_with_retry', side_effect=fetch):
+            generator = h.prefetched_packages(list(range(12)))
+            number, package, future = next(generator)
+            self.assertTrue(three_started.wait(2))
+            self.assertEqual(len(started), 3)
+            self.assertEqual(future.result(), 0)
+            generator.close()
+            self.assertEqual(len(started), 3)
+
     def test_unwrap_historical_redirect_and_remove_expired_query(self):
         url = 'https://web.archive.org/web/20241209064814id_/https://a56.gdl.netease.com/GameViewer_Setup_2.5.1.2910_1208161902_gwqd.exe?key1=old&key2=expired'
         package = h.package_url(url)
