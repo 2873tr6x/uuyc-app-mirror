@@ -22,6 +22,17 @@ class Response(io.BytesIO):
 
 
 class HistoryTests(unittest.TestCase):
+    def test_checkpoint_reuses_only_matching_plan_and_remote_digest(self):
+        url = 'https://a56.gdl.netease.com/uuyc_4.3.1.apk'
+        candidate = h.package_url(url)
+        package = {'resolved_url': url, 'asset_name': 'android--uuyc_4.3.1.apk', 'sha256': 'a' * 64, 'size': 2048}
+        saved = {'tag': h.TAG, 'source_plan_sha256': 'plan-hash', 'packages': [package], 'run_url': 'https://github.com/owner/repo/actions/runs/1'}
+        assets = {package['asset_name']: {'size': 2048, 'digest': 'sha256:' + 'a' * 64}}
+        self.assertEqual(len(h.checkpoint_packages(saved, {'packages': [candidate]}, assets, 'plan-hash')), 1)
+        self.assertEqual(h.checkpoint_packages(saved, {'packages': [candidate]}, assets, 'other-plan'), [])
+        assets[package['asset_name']]['digest'] = 'sha256:' + 'b' * 64
+        self.assertEqual(h.checkpoint_packages(saved, {'packages': [candidate]}, assets, 'plan-hash'), [])
+
     def test_prefetch_never_accumulates_more_than_three_packages(self):
         started = []
         three_started = threading.Event()

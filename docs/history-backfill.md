@@ -40,6 +40,8 @@ CDX digest 使用 Base32 SHA-1，**不是 SHA-256**。SHA-1 只作为历史一�
 
 所有新补齐包集中在 `uuyc-history-2026-11-27`。先建立 draft，最多并行下载 3 个包，逐个上传并核验 GitHub size / SHA-256 digest，再清理该次运行的临时安装包；完成上传前不会继续堆积更多下载文件，避免 runner 磁盘被历史包占满。已在其他公开 Release 中具有相同文件名和 SHA-256 的包不重复上传，manifest 提供原 Release 链接。不同渠道、不同原始文件名保留各自身份。
 
+每处理 5 个包，将 manifest 写入草稿作为断点；重跑仅在来源计划 SHA-256 相同、条目仍属于该计划、且 GitHub 资产 size / SHA-256 digest 均相符时复用已验证资产，并保留实际恢复它的原运行链接。上传失败有限重试。不要在上传期间手工修改草稿 tag；脚本只在开始时同时设置 `tag_name` 和 `target_commitish`，避免 GitHub 自动重置 draft tag。
+
 包不可访问、内容已改变或格式校验失败时，记录 `unavailable`；成功包仍可发布，但 Release 正文明示恢复数、已归档数、失败数和来源查询缺口，不宣称覆盖全部历史。GitHub 上传或摘要校验失败则整轮保持 draft，不公开未核验的资产。最后再次核对整个资产集合，拒绝含过期或意外资产的草稿。发布使用 `--latest=false`，持续镜像工作流和当前 Latest 不受这份历史归档影响。
 
 随 Release 提供 `historical-manifest.json`、冻结来源计划与 `SHA256SUMS.txt`。manifest 包含每个包的证据、版本、大小、SHA-256、历史 SHA-1、一致性结论、官方 HTTP metadata、运行 URL、源码提交、已归档链接和未能恢复的候选。`created_at` 是本次回溯执行时间，快照时间是证据捕获时间，都不是官方发版日期。

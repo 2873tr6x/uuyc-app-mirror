@@ -14,6 +14,7 @@ import json
 import os
 from pathlib import Path
 import re
+import subprocess
 import time
 import urllib.error
 import urllib.parse
@@ -413,6 +414,34 @@ def prefetched_packages(packages):
                 pending.append((number, package, pool.submit(fetch_with_retry, package)))
 
 
+def upload(repo, *paths):
+    for attempt in range(3):
+        try:
+            return mirror.gh('release', 'upload', TAG, '--repo', repo, '--clobber', *map(str, paths))
+        except subprocess.CalledProcessError as error:
+            mirror.summary('GitHub upload retry: ' + error.stderr.decode('utf-8', errors='replace'))
+            if attempt == 2:
+                raise
+            time.sleep(3 * (attempt + 1))
+
+
+def checkpoint_packages(saved, plan, assets, plan_hash):
+    if saved.get('source_plan_sha256') != plan_hash or saved.get('tag') != TAG:
+        return []
+    candidates = {p['url']: p for p in plan['packages']}
+    restored = []
+    for package in saved.get('packages', []):
+        candidate = candidates.get(package.get('resolved_url'))
+        if not candidate:
+            continue
+        name = candidate['platform'] + '--' + candidate['filename']
+        asset = assets.get(name, {})
+        if (package.get('asset_name') == name and asset.get('size') == package.get('size')
+                and asset.get('digest') == 'sha256:' + package.get('sha256', '')):
+            restored.append({**package, 'recovered_by_run_url': package.get('recovered_by_run_url', saved.get('run_url'))})
+    return restored
+
+
 def execute(args):
     plan = json.loads(PLAN.read_text(encoding='utf-8'))
     OUT.mkdir(parents=True, exist_ok=True)
@@ -430,6 +459,17 @@ def execute(args):
         release = mirror.api(f'repos/{args.repo}/releases', '--method', 'POST', '-f', 'tag_name=' + TAG,
                              '-f', 'name=UU 远程历史版本一次性回溯 · 2026-11-27', '-F', 'draft=true',
                              '-f', 'target_commitish=' + os.environ.get('GITHUB_SHA', 'main'))
+    elif args.publish:
+        # Always include tag_name: GitHub may reset a draft tag when only target changes.
+        release = mirror.api(f'repos/{args.repo}/releases/{release["id"]}', '--method', 'PATCH',
+                             '-f', 'tag_name=' + TAG, '-f', 'target_commitish=' + os.environ.get('GITHUB_SHA', 'main'))
+    if args.publish:
+        assets = {a['name']: a for a in release['assets']}
+        checkpoint = assets.get('historical-manifest.json')
+        if checkpoint:
+            saved = json.loads(mirror.gh('api', f'repos/{args.repo}/releases/assets/{checkpoint["id"]}', '-H', 'Accept: application/octet-stream'))
+            result['packages'] = checkpoint_packages(saved, plan, assets, result['source_plan_sha256'])
+            mirror.summary(f"Restored {len(result['packages'])} verified assets from draft checkpoint")
     existing = {}
     if args.publish:
         pages = mirror.api(f'repos/{args.repo}/releases?per_page=100', '--paginate', '--slurp')
@@ -441,11 +481,14 @@ def execute(args):
                     if asset.get('digest'):
                         existing[(asset['name'], asset['digest'])] = prior['html_url']
 
-    for number, package, future in prefetched_packages(plan['packages']):
+    restored_urls = {p['resolved_url'] for p in result['packages']}
+    pending_packages = [p for p in plan['packages'] if p['url'] not in restored_urls]
+    for number, package, future in prefetched_packages(pending_packages):
         mirror.summary(f"Historical download {number}/{len(plan['packages'])}: {package['filename']}")
         path = OUT / (package['platform'] + '--' + package['filename'])
         try:
             recovered = future.result()
+            recovered['recovered_by_run_url'] = result['run_url']
             digest = 'sha256:' + recovered['sha256']
             prior = existing.get((recovered['asset_name'], digest))
             if prior:
@@ -453,7 +496,7 @@ def execute(args):
                 path.unlink()
             else:
                 if args.publish:
-                    mirror.gh('release', 'upload', TAG, '--repo', args.repo, '--clobber', str(path))
+                    upload(args.repo, path)
                     remote = mirror.api(f'repos/{args.repo}/releases/{release["id"]}/assets?per_page=100', '--paginate', '--slurp')
                     asset = next(a for page in remote for a in page if a['name'] == recovered['asset_name'])
                     if asset['size'] != recovered['size'] or asset.get('digest') != digest:
@@ -466,6 +509,8 @@ def execute(args):
             if path.exists():
                 path.unlink()
         mirror.write_json(report_path, result)
+        if args.publish and number % 5 == 0:
+            upload(args.repo, report_path)
     if not result['packages']:
         raise ValueError('No new historical packages recovered; refusing empty publication')
     result['completed_at'] = mirror.now()
@@ -494,7 +539,7 @@ def execute(args):
     (OUT / 'SHA256SUMS.txt').write_text('\n'.join(sums) + '\n', encoding='utf-8')
     if args.publish:
         metadata = ['historical-manifest.json', PLAN.name, 'SHA256SUMS.txt']
-        mirror.gh('release', 'upload', TAG, '--repo', args.repo, '--clobber', *[str(OUT / n) for n in metadata])
+        upload(args.repo, *[OUT / n for n in metadata])
         remote = mirror.api(f'repos/{args.repo}/releases/{release["id"]}/assets?per_page=100', '--paginate', '--slurp')
         assets = {a['name']: a for page in remote for a in page}
         expected = {p['asset_name']: (p['size'], p['sha256']) for p in result['packages']}
