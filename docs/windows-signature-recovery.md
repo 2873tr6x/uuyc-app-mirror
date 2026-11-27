@@ -18,6 +18,20 @@
 
 ## 冻结与发布
 
+### 第二批（2026-11-27）
+
+[第二批补充归档](https://github.com/2873tr6x/uuyc-app-mirror/releases/tag/uuyc-windows-history-2026-11-27-batch2) · [第二批来源计划](../data/windows-signature-recovery-2026-11-27-batch2.json)。各批次使用独立的冻结计划和 Release，已公开的第一批不覆盖。
+
+```powershell
+./scripts/inspect-windows.ps1 -Source 'D:\uuyc_windows_untrusted2' -Output dist/windows-hints-batch2.json
+python scripts/windows-hunt.py --hints dist/windows-hints-batch2.json --output dist/windows-hunt-batch2.json
+# 仅对未命中项扩大窗口，已命中项复用：
+python scripts/windows-hunt.py --radius 300 --hints dist/windows-hints-batch2.json --output dist/windows-hunt-batch2.json
+python scripts/freeze-windows.py --batch 2026-11-27-batch2 --hints dist/windows-hints-batch2.json --searches dist/windows-hunt-batch2.json
+```
+
+手动运行工作流时指定 `batch=2026-11-27-batch2`。runner 根据受限格式的批次标识读取仓库内的冻结计划，不接收本地 EXE 或任意下载 URL。`windows-recover.py --batch 2026-11-27-batch2 --publish` 仍会核对官方文件签名、内部版本与上传摘要。
+
 `python scripts/freeze-windows.py` 将命中地址、原始文件 hash、时间线索、官方 HEAD 响应，以及失败/跳过项冻结到 `data/windows-signature-recovery-2026-11-27.json`。这是推导证据，不能冒充 Wayback 历史链接证明。计划不含本地绝对路径或第三方文件本体。
 
 手动运行 **One-shot Windows signature recovery**。Windows runner 从冻结计划重新下载网易官方文件，使用已有历史回溯的长度、格式、SHA-256、断点和 GitHub asset digest 核验；新增 `verify-windows.ps1`，要求 Authenticode 为 `Valid`、签名主体为网易（杭州）、内部版本等于候选版本。任何签名或版本检查失败会停止发布。manifest 记录签名主体、证书指纹、时间戳机构、内部版本，以及官方包与第三方线索 hash 是否相同。渠道不同造成的 hash 差异不会以第三方文件替代官方文件。

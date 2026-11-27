@@ -2,6 +2,12 @@ name: One-shot Windows signature recovery
 
 on:
   workflow_dispatch:
+    inputs:
+      batch:
+        description: Frozen recovery batch identifier
+        required: true
+        default: '2026-11-27-batch2'
+        type: string
 
 permissions:
   contents: read
@@ -20,6 +26,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       PYTHONUNBUFFERED: '1'
       PYTHONUTF8: '1'
+      RECOVERY_BATCH: ${{ inputs.batch }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -30,15 +37,15 @@ jobs:
       - name: Validate logic
         run: python -m unittest discover -s tests -v
       - name: Download official packages, verify Authenticode, and publish
-        run: python scripts/windows-recover.py --publish
+        run: python scripts/windows-recover.py --publish --batch "$env:RECOVERY_BATCH"
       - name: Preserve diagnostics
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: windows-signature-recovery-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            dist/windows-recovery/*.json
-            dist/windows-recovery/*.txt
-            dist/windows-recovery/*.md
+            dist/windows-recovery-*/*.json
+            dist/windows-recovery-*/*.txt
+            dist/windows-recovery-*/*.md
           retention-days: 30
           if-no-files-found: ignore

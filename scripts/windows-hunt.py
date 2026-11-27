@@ -49,11 +49,15 @@ def probe(item):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--radius', type=int, default=100, choices=(100, 300))
+    parser.add_argument('--hints', type=Path, default=Path('dist/windows-hints.json'))
+    parser.add_argument('--output', type=Path, default=Path('dist/windows-hunt.json'))
     args = parser.parse_args()
-    hints = json.loads(Path('dist/windows-hints.json').read_text(encoding='utf-8-sig'))
+    hints = json.loads(args.hints.read_text(encoding='utf-8-sig'))
     known = json.loads(Path('data/wayback-2026-11-27.json').read_text(encoding='utf-8'))
     versions = {p['version'] for p in known['packages'] if p['platform'] == 'windows'}
-    output = Path('dist/windows-hunt.json')
+    for plan in Path('data').glob('windows-signature-recovery-*.json'):
+        versions.update(p['version'] for p in json.loads(plan.read_text(encoding='utf-8'))['packages'])
+    output = args.output
     results = json.loads(output.read_text(encoding='utf-8')) if output.exists() else []
     results = [r for r in results if r.get('matches') or (r.get('skipped') and not r['hint']['version'].startswith('0.')) or r.get('radius_seconds', 0) >= args.radius]
     seen = {r['hint']['version'] for r in results}
